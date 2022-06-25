@@ -25,8 +25,8 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="120dp"
-            android:text="blablabla"
-            android:textAlignment="textEnd"
+            android:hint="blablabla"
+            android:textAlignment="viewEnd"
             android:textSize="@dimen/default_text" />
 
         <EditText
