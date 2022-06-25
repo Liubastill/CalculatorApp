@@ -18,13 +18,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/default_margin"
+
         android:orientation="vertical">
 
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="120dp"
             android:text="blablabla"
             android:textAlignment="textEnd"
             android:textSize="@dimen/default_text" />
@@ -48,7 +48,10 @@
                 android:id="@+id/cencel_botton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="0"
                 android:layout_columnWeight="1"
+                android:backgroundTint="@color/button"
                 android:text="@string/key_cancel"
                 android:textColor="@android:color/holo_red_dark"
                 android:textSize="@dimen/default_text" />
@@ -58,6 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
+                android:backgroundTint="@color/button"
                 android:text="()"
                 android:textColor="@color/green"
                 android:textSize="@dimen/default_text" />
@@ -67,6 +71,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
+                android:backgroundTint="@color/button"
                 android:text="%"
                 android:textColor="@color/green"
                 android:textSize="@dimen/default_text" />
@@ -76,6 +81,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
+                android:backgroundTint="@color/button"
                 android:text="@string/key_devide"
                 android:textColor="@color/green"
                 android:textSize="@dimen/default_text" />
@@ -85,7 +91,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
+                android:backgroundTint="@color/button"
                 android:text="@string/key_1"
+                android:textColor="@color/button_text"
                 android:textSize="@dimen/default_text" />
 
             <Button
@@ -93,7 +101,9 @@
                 android:layout_width="22dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
+                android:backgroundTint="@color/button"
                 android:text="@string/key_2"
+                android:textColor="@color/button_text"
                 android:textSize="@dimen/default_text" />
 
             <Button
@@ -101,7 +111,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
+                android:backgroundTint="@color/button"
                 android:text="@string/key_3"
+                android:textColor="@color/button_text"
                 android:textSize="@dimen/default_text" />
 
             <Button
@@ -109,6 +121,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
+                android:backgroundTint="@color/button"
                 android:text="@string/key_multiple"
                 android:textColor="@color/green"
                 android:textSize="@dimen/default_text" />
@@ -118,7 +131,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
+                android:backgroundTint="@color/button"
                 android:text="@string/key_4"
+                android:textColor="@color/button_text"
                 android:textSize="@dimen/default_text" />
 
 
@@ -127,7 +142,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
+                android:backgroundTint="@color/button"
                 android:text="@string/key_5"
+                android:textColor="@color/button_text"
                 android:textSize="@dimen/default_text" />
 
 
@@ -136,7 +153,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
+                android:backgroundTint="@color/button"
                 android:text="@string/key_6"
+                android:textColor="@color/button_text"
                 android:textSize="@dimen/default_text" />
 
             <Button
@@ -144,6 +163,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
+                android:backgroundTint="@color/button"
                 android:text="@string/key_minus"
                 android:textColor="@color/green"
                 android:textSize="@dimen/default_text" />
@@ -153,7 +173,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
+                android:backgroundTint="@color/button"
                 android:text="@string/key_7"
+                android:textColor="@color/button_text"
                 android:textSize="@dimen/default_text" />
 
             <Button
@@ -161,7 +183,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
+                android:backgroundTint="@color/button"
                 android:text="@string/key_8"
+                android:textColor="@color/button_text"
                 android:textSize="@dimen/default_text" />
 
 
@@ -170,7 +194,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
+                android:backgroundTint="@color/button"
                 android:text="@string/key_9"
+                android:textColor="@color/button_text"
                 android:textSize="@dimen/default_text" />
 
             <Button
@@ -178,6 +204,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
+                android:backgroundTint="@color/button"
                 android:text="@string/key_plus"
                 android:textColor="@color/green"
                 android:textSize="@dimen/default_text" />
@@ -188,7 +215,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
+                android:backgroundTint="@color/button"
                 android:text="@string/key_dot"
+                android:textColor="@color/button_text"
                 android:textSize="@dimen/default_text" />
 
             <Button
@@ -196,7 +225,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
+                android:backgroundTint="@color/button"
                 android:text="@string/key_0"
+                android:textColor="@color/button_text"
                 android:textSize="@dimen/default_text" />
 
             <Button
@@ -206,6 +237,7 @@
                 android:layout_columnSpan="2"
                 android:layout_columnWeight="2"
                 android:layout_gravity="fill_horizontal"
+                android:backgroundTint="@color/button"
                 android:text="@string/key_equals"
                 android:textColor="@color/green"
                 android:textSize="@dimen/default_text" />
