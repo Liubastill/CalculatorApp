@@ -17,4 +17,5 @@
     <string name="key_plus">+</string>
     <string name="key_equals">=</string>
     <string name="key_devide">÷</string>
+    <string name="key_erase">⌫</string>
 </resources>

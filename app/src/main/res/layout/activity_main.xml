@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_margin="@dimen/default_margin"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <ImageView
         android:layout_width="match_parent"
@@ -40,7 +40,7 @@
 
 
             <Button
-                android:id="@+id/cencel_botton"
+                android:id="@+id/key_cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -70,7 +70,7 @@
                 android:textSize="@dimen/default_text" />
 
             <Button
-                android:id="@+id/devide"
+                android:id="@+id/key_div"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -110,7 +110,7 @@
                 android:textSize="@dimen/default_text" />
 
             <Button
-                android:id="@+id/multiply"
+                android:id="@+id/key_mult"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -152,7 +152,7 @@
                 android:textSize="@dimen/default_text" />
 
             <Button
-                android:id="@+id/minus_button"
+                android:id="@+id/key_minus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -193,7 +193,7 @@
                 android:textSize="@dimen/default_text" />
 
             <Button
-                android:id="@+id/plus_botton"
+                android:id="@+id/key_plus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -214,7 +214,7 @@
                 android:textSize="@dimen/default_text" />
 
             <Button
-                android:id="@+id/zero_button"
+                android:id="@+id/key_0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
