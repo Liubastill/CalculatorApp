@@ -15,41 +15,34 @@
         android:src="@drawable/clouds" />
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-        android:orientation="vertical">
-
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:hint="blablabla"
-            android:textAlignment="viewEnd"
-            android:textSize="@dimen/default_text" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="result"
-            android:textAlignment="textEnd"
-            android:textSize="30sp" />
-
 
         <GridLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:columnCount="4"
-            android:useDefaultMargins="true">
+            android:useDefaultMargins="true"
+
+            >
+
+            <EditText
+                android:id="@+id/result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="4"
+                android:layout_gravity="fill_horizontal"
+                android:textSize="@dimen/default_text"
+                android:gravity="end|bottom"
+                android:paddingVertical="@dimen/default_pedding"
+                tools:text="555"
+                />
+
+
 
 
             <Button
                 android:id="@+id/cencel_botton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_row="0"
-                android:layout_column="0"
                 android:layout_columnWeight="1"
                 android:backgroundTint="@color/button"
                 android:text="@string/key_cancel"
@@ -57,12 +50,12 @@
                 android:textSize="@dimen/default_text" />
 
             <Button
-                android:id="@+id/noon_botton"
+                android:id="@+id/eraise"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:backgroundTint="@color/button"
-                android:text="()"
+                android:text="@string/key_erase"
                 android:textColor="@color/green"
                 android:textSize="@dimen/default_text" />
 
@@ -243,6 +236,6 @@
                 android:textSize="@dimen/default_text" />
 
         </GridLayout>
-    </LinearLayout>
+
 
 </FrameLayout>
