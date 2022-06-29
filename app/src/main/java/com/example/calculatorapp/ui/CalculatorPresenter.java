@@ -1,6 +1,8 @@
 package com.example.calculatorapp.ui;
 
 
+import android.content.Intent;
+
 import com.example.calculatorapp.model.Calculator;
 import com.example.calculatorapp.model.Operator;
 
@@ -13,9 +15,47 @@ public class CalculatorPresenter {
     private CalculatorView view;
     private Calculator calculator;
 
+
     private double argOne;
     private Double argTwo;
     private Operator selectedOperator;
+    private double lastRes;
+
+
+
+    public double getLastRes() {
+        return lastRes;
+    }
+
+    public void setLastRes(double lastRes) {
+        this.lastRes = lastRes;
+    }
+
+
+
+    public void setArgOne(double argOne) {
+        this.argOne = argOne;
+    }
+
+    public void setArgTwo(Double argTwo) {
+        this.argTwo = argTwo;
+    }
+
+    public void setSelectedOperator(Operator selectedOperator) {
+        this.selectedOperator = selectedOperator;
+    }
+
+    public double getArgOne() {
+        return argOne;
+    }
+
+    public Double getArgTwo() {
+        return argTwo;
+    }
+
+    public Operator getSelectedOperator() {
+        return selectedOperator;
+    }
 
     public CalculatorPresenter(CalculatorView view, Calculator calculator) {
         this.view = view;
@@ -28,9 +68,11 @@ public class CalculatorPresenter {
         if (argTwo == null) {
             argOne = argOne * 10 + digit;
             showFormatted(argOne);
+            lastRes = argOne;
         } else {
             argTwo = argTwo * 10 + digit;
             showFormatted(argTwo);
+            lastRes =(double) argTwo;
         }
     }
 
@@ -39,17 +81,33 @@ public class CalculatorPresenter {
         if (selectedOperator != null) {
             argOne = calculator.execute(argOne, argTwo, selectedOperator);
             showFormatted(argOne);
+            lastRes = argOne;
         }
         argTwo = 0.0;
 
         selectedOperator = operator;
     }
 
+
+    public void onEqualsPressed() {
+        if (selectedOperator != null) {
+            argOne = calculator.execute(argOne, argTwo, selectedOperator);
+            showFormatted(argOne);
+            lastRes = argOne;
+        }
+        argTwo = 0.0;//?
+
+    }
+
     public void onDotPressed() {
 
     }
 
-    private void showFormatted(double val) {
+    public void onPlusMinusPressed() {
+
+    }
+
+    public void showFormatted(double val) {
 
         view.showResult((formater.format(val)));
 

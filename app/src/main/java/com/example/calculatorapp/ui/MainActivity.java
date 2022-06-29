@@ -1,9 +1,9 @@
 package com.example.calculatorapp.ui;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -12,7 +12,7 @@ import com.example.calculatorapp.R;
 import com.example.calculatorapp.model.CalculatorImpl;
 import com.example.calculatorapp.model.Operator;
 
-import java.util.Collection;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,9 +26,20 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         resultTxt = findViewById(R.id.result);
-        presenter = new CalculatorPresenter(this, new CalculatorImpl());
+
+
+        if (savedInstanceState != null) {
+            presenter = new CalculatorPresenter(this, new CalculatorImpl());
+            presenter.setArgOne((double)savedInstanceState.getSerializable("KEY_ARG1"));
+            presenter.setArgTwo((Double)savedInstanceState.getSerializable("KEY_ARG2"));
+            presenter.setSelectedOperator((Operator) savedInstanceState.getSerializable("KEY_OPER"));
+            presenter.setLastRes((double)savedInstanceState.getSerializable("KEY_LASTRES"));
+            presenter.showFormatted(presenter.getLastRes());
+        } else{
+            presenter = new CalculatorPresenter(this, new CalculatorImpl());
+        }
+
 
         Map<Integer,Integer> digits = new HashMap<>();
         digits.put(R.id.key_1, 1);
@@ -68,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
         operators.put(R.id.key_plus, Operator.ADD);
         operators.put(R.id.key_mult, Operator.MULT);
         operators.put(R.id.key_div, Operator.DIV);
+        operators.put(R.id.key_percent, Operator.PCENT);
 
         View.OnClickListener operatorsClickListener = new View.OnClickListener() {
             @Override
@@ -80,6 +92,8 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
         findViewById(R.id.key_plus).setOnClickListener(operatorsClickListener);
         findViewById(R.id.key_div).setOnClickListener(operatorsClickListener);
         findViewById(R.id.key_mult).setOnClickListener(operatorsClickListener);
+        findViewById(R.id.key_percent).setOnClickListener(operatorsClickListener);
+        findViewById(R.id.key_percent).setOnClickListener(operatorsClickListener);
 
 
 
@@ -90,11 +104,41 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
             }
         });
 
+        findViewById(R.id.key_cancel).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, MainActivity.class));
+            }
+        });
+
+        findViewById(R.id.key_equals).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                presenter.onEqualsPressed();
+            }
+        });
+
+
+
+
     }
 
     @Override
     public void showResult(String result) {
         resultTxt.setText(result);
+
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable("KEY_ARG1", presenter.getArgOne() );
+        outState.putSerializable("KEY_ARG2", presenter.getArgTwo());
+        outState.putSerializable("KEY_OPER", presenter.getSelectedOperator());
+        outState.putSerializable("KEY_LASTRES", presenter.getLastRes());
+
+
+
 
     }
 }
