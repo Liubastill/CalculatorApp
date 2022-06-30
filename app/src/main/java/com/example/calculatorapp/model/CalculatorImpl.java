@@ -5,6 +5,7 @@ public class CalculatorImpl implements Calculator{
 
     @Override
     public double execute(double arg1, double arg2, Operator operator) {
+        //обернуть в try, деление на ноль
         switch (operator){
             case ADD:
                 return arg1 + arg2;
@@ -14,6 +15,9 @@ public class CalculatorImpl implements Calculator{
                 return arg1 - arg2;
             case DIV:
                 return arg1 / arg2;
+            case PCENT:
+                return (arg1 / 100) * arg2;
+
         }
 
         return 0.0;

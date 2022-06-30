@@ -24,7 +24,7 @@
 
             >
 
-            <EditText
+            <TextView
                 android:id="@+id/result"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -50,17 +50,17 @@
                 android:textSize="@dimen/default_text" />
 
             <Button
-                android:id="@+id/eraise"
+                android:id="@+id/key_plusmin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:backgroundTint="@color/button"
-                android:text="@string/key_erase"
+                android:text="@string/key_plusminus"
                 android:textColor="@color/green"
                 android:textSize="@dimen/default_text" />
 
             <Button
-                android:id="@+id/percent"
+                android:id="@+id/key_percent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -224,7 +224,7 @@
                 android:textSize="@dimen/default_text" />
 
             <Button
-                android:id="@+id/equals"
+                android:id="@+id/key_equals"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnSpan="2"

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.calculatorapp.R;
 import com.example.calculatorapp.model.CalculatorImpl;
@@ -27,6 +28,8 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         resultTxt = findViewById(R.id.result);
+
+
 
 
         if (savedInstanceState != null) {
@@ -81,6 +84,7 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
         operators.put(R.id.key_div, Operator.DIV);
         operators.put(R.id.key_percent, Operator.PCENT);
 
+
         View.OnClickListener operatorsClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
         findViewById(R.id.key_div).setOnClickListener(operatorsClickListener);
         findViewById(R.id.key_mult).setOnClickListener(operatorsClickListener);
         findViewById(R.id.key_percent).setOnClickListener(operatorsClickListener);
-        findViewById(R.id.key_percent).setOnClickListener(operatorsClickListener);
+
 
 
 
@@ -118,7 +122,12 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
             }
         });
 
-
+        /*findViewById(R.id.key_plusmin).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                presenter.onPlusMinusPressed();
+            }
+        });*/
 
 
     }
