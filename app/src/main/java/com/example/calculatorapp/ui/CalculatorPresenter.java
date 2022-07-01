@@ -16,7 +16,7 @@ public class CalculatorPresenter {
     private Calculator calculator;
 
 
-    private double argOne;
+    private Double argOne;
     private Double argTwo;
     private Operator selectedOperator;
     private double lastRes;
@@ -35,7 +35,7 @@ public class CalculatorPresenter {
 
 
 
-    public void setArgOne(double argOne) {
+    public void setArgOne(Double argOne) {
         this.argOne = argOne;
     }
 
@@ -47,7 +47,7 @@ public class CalculatorPresenter {
         this.selectedOperator = selectedOperator;
     }
 
-    public double getArgOne() {
+    public Double getArgOne() {
         return argOne;
     }
 
@@ -65,13 +65,20 @@ public class CalculatorPresenter {
     }
 
 
-    public void onDigitPressed(int digit) {
+    public void onDigitPressed(double digit) {
         if(dotPressed == false){
 
         if (argTwo == null) {
+            if(argOne != null){
+
             argOne = argOne * 10 + digit;
             showFormatted(argOne);
             lastRes = argOne;
+            }else{
+                argOne = digit;
+                showFormatted(argOne);
+                lastRes = argOne;
+            }
 
         } else {
             argTwo = argTwo * 10 + digit;
@@ -93,17 +100,18 @@ public class CalculatorPresenter {
     }
 
     public void onOperatorPressed(Operator operator) {
+        if (argOne != null) {
+            if (selectedOperator != null) {
+                argOne = calculator.execute(argOne, argTwo, selectedOperator);
+                showFormatted(argOne);
+                lastRes = argOne;
+            }
+            argTwo = 0.0;
 
-        if (selectedOperator != null) {
-            argOne = calculator.execute(argOne, argTwo, selectedOperator);
-            showFormatted(argOne);
-            lastRes = argOne;
+            selectedOperator = operator;
+            dotPressed = false;
+            dotAlreadyPressed = false;
         }
-        argTwo = 0.0;
-
-        selectedOperator = operator;
-        dotPressed = false;
-        dotAlreadyPressed = false;
     }
 
 

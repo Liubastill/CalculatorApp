@@ -14,7 +14,9 @@ public class CalculatorImpl implements Calculator{
             case SUB:
                 return arg1 - arg2;
             case DIV:
+               if(arg2 != 0.0)
                 return arg1 / arg2;
+
             case PCENT:
                 return (arg1 / 100) * arg2;
 
@@ -22,4 +24,6 @@ public class CalculatorImpl implements Calculator{
 
         return 0.0;
     }
+
+
 }

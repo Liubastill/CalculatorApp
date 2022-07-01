@@ -91,12 +91,15 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
                 presenter.onOperatorPressed(operators.get(view.getId()));
             }
         };
+        try {
+            findViewById(R.id.key_minus).setOnClickListener(operatorsClickListener);
+            findViewById(R.id.key_plus).setOnClickListener(operatorsClickListener);
+            findViewById(R.id.key_div).setOnClickListener(operatorsClickListener);
+            findViewById(R.id.key_mult).setOnClickListener(operatorsClickListener);
+            findViewById(R.id.key_percent).setOnClickListener(operatorsClickListener);
+        }catch(ArrayIndexOutOfBoundsException e){
 
-        findViewById(R.id.key_minus).setOnClickListener(operatorsClickListener);
-        findViewById(R.id.key_plus).setOnClickListener(operatorsClickListener);
-        findViewById(R.id.key_div).setOnClickListener(operatorsClickListener);
-        findViewById(R.id.key_mult).setOnClickListener(operatorsClickListener);
-        findViewById(R.id.key_percent).setOnClickListener(operatorsClickListener);
+        }
 
 
 
