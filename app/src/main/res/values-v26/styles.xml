@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ViewTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">fill_horizontal</item>
+        <item name="android:textSize">@dimen/result_window_text_size</item>
+        <item name="android:gravity">end|bottom</item>
+        <item name="android:fontFamily">@font/calculator</item>
+        <item name="android:paddingVertical">@dimen/default_padding</item>
+
+    </style>
+</resources>

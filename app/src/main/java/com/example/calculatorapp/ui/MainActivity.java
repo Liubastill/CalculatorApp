@@ -31,17 +31,16 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
 
 
 
-
+        presenter = new CalculatorPresenter(this, new CalculatorImpl());
         if (savedInstanceState != null) {
-            presenter = new CalculatorPresenter(this, new CalculatorImpl());
             presenter.setArgOne((double)savedInstanceState.getSerializable("KEY_ARG1"));
             presenter.setArgTwo((Double)savedInstanceState.getSerializable("KEY_ARG2"));
             presenter.setSelectedOperator((Operator) savedInstanceState.getSerializable("KEY_OPER"));
             presenter.setLastRes((double)savedInstanceState.getSerializable("KEY_LASTRES"));
             presenter.showFormatted(presenter.getLastRes());
-        } else{
+        } /*else{
             presenter = new CalculatorPresenter(this, new CalculatorImpl());
-        }
+        }*/
 
 
         Map<Integer,Integer> digits = new HashMap<>();
@@ -122,6 +121,7 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
             @Override
             public void onClick(View view) {
                 presenter.onEqualsPressed();
+
             }
         });
 
