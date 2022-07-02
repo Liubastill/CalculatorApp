@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="MyCalcButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@color/my_button_color</item>
+        <item name="android:textColor">@color/my_button_text_color</item>
+        <item name="android:textSize">@dimen/default_text_size</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_gravity">fill_horizontal</item>
+    </style>
+
+
+    <style name="MyCalcButtonStyle.Night">
+        <item name="android:backgroundTint">@color/my_button_night_color</item>
+        <item name="android:textColor">@color/my_gray</item>
+    </style>
+
+
+    <style name="MyCalcButtonStyle.Operators">
+        <item name="android:textColor">@color/operator_green</item>
+    </style>
+
+
+    <style name="MyCalcButtonStyle.Operators.Nigth">
+        <item name="android:backgroundTint">@color/my_button_night_color</item>
+    </style>
+
+
+    <style name="ViewTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">fill_horizontal</item>
+        <item name="android:textSize">@dimen/result_window_text_size</item>
+        <item name="android:gravity">end|bottom</item>
+        <item name="android:fontFamily">@font/calculator</item>
+        <item name="android:paddingVertical" tools:targetApi="o">@dimen/default_padding</item>
+    </style>
+
+
+    <style name="ViewTextStyle.Night">
+        <item name="android:textColor">@color/my_gray</item>
+    </style>
+
+
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+
+</resources>

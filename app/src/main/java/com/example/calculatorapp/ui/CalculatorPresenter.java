@@ -68,23 +68,21 @@ public class CalculatorPresenter {
     public void onDigitPressed(double digit) {
         if(dotPressed == false){
 
-        if (argTwo == null) {
-            if(argOne != null){
+            if (argTwo == null) {
+                if(argOne != null){
 
-            argOne = argOne * 10 + digit;
-            showFormatted(argOne);
-            lastRes = argOne;
-            }else{
-                argOne = digit;
-                showFormatted(argOne);
-                lastRes = argOne;
-            }
+                    argOne = argOne * 10 + digit;
+                    showFormatted(argOne);
+                    lastRes = argOne;
+                }else{
+                    argOne = digit;
+                }
 
-        } else {
-            argTwo = argTwo * 10 + digit;
-            showFormatted(argTwo);
-            lastRes =(double) argTwo;
-        }}else{
+            } else {
+                argTwo = argTwo * 10 + digit;
+                showFormatted(argTwo);
+                lastRes =(double) argTwo;
+            }}else{
             if (argTwo == null) {
                 argOne = argOne + digit*Math.pow(10, n);
                 showFormatted(argOne);
@@ -100,18 +98,17 @@ public class CalculatorPresenter {
     }
 
     public void onOperatorPressed(Operator operator) {
-        if (argOne != null) {
-            if (selectedOperator != null) {
-                argOne = calculator.execute(argOne, argTwo, selectedOperator);
-                showFormatted(argOne);
-                lastRes = argOne;
-            }
-            argTwo = 0.0;
 
-            selectedOperator = operator;
-            dotPressed = false;
-            dotAlreadyPressed = false;
+        if (selectedOperator != null) {
+            argOne = calculator.execute(argOne, argTwo, selectedOperator);
+            showFormatted(argOne);
+            lastRes = argOne;
         }
+        argTwo = 0.0;
+
+        selectedOperator = operator;
+        dotPressed = false;
+        dotAlreadyPressed = false;
     }
 
 
@@ -142,7 +139,7 @@ public class CalculatorPresenter {
     public void onPlusMinusPressed() {
 
 
-        }
+    }
 
     public void showFormatted(double val) {
 

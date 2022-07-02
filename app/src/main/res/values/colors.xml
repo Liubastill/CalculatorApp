@@ -7,9 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="green">#08c73b</color>
-    <color name="button">#25cad6eb</color>
-    <color name="button_text">#373b42</color>
+    <color name="operator_green">#08c73b</color>
+    <color name="my_button_color">#25cad6eb</color>
+    <color name="my_button_night_color">#1a232b</color>
+    <color name="my_button_text_color">#373b42</color>
+    <color name="my_primary_brand_color">#e4f3f5</color>
+    <color name="my_primary_brand_textcolor">#738587</color>
+    <color name="my_gray">#5d5f61</color>
+
 
 
 </resources>
