@@ -3,4 +3,8 @@
 
     <attr name="calcOperatorsButton"
         format="reference"/>
+    <attr name="mytextViewStyle"
+        format="reference"/>
+    <attr name="myImageViewStyle"
+        format="reference"/>
 </resources>

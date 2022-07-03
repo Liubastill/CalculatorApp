@@ -17,6 +17,8 @@
         <item name="windowNoTitle">true</item>
         <item name="materialButtonStyle">@style/MyCalcButtonStyle</item>
         <item name="calcOperatorsButton">@style/MyCalcButtonStyle.Operators</item>
+        <item name="mytextViewStyle">@style/ViewTextStyle</item>
+        <item name="myImageViewStyle">@style/ImageView</item>
 
 
     </style>

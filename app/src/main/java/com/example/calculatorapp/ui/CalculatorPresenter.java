@@ -66,7 +66,7 @@ public class CalculatorPresenter {
 
 
     public void onDigitPressed(double digit) {
-        if(dotPressed == false){
+        if(!dotPressed){
 
             if (argTwo == null) {
                 if(argOne != null){
@@ -76,6 +76,8 @@ public class CalculatorPresenter {
                     lastRes = argOne;
                 }else{
                     argOne = digit;
+                    showFormatted(argOne);
+                    lastRes = argOne;
                 }
 
             } else {
@@ -125,9 +127,9 @@ public class CalculatorPresenter {
     }
 
     public void onDotPressed() {
-        if(dotAlreadyPressed == false) {
+        if(!dotAlreadyPressed) {
             n = -1;
-            if (dotPressed == false) {
+            if (!dotPressed) {
                 dotPressed = true;
             } else {
                 dotPressed = false;

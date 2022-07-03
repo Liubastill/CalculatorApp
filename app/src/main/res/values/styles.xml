@@ -36,13 +36,24 @@
         <item name="android:gravity">end|bottom</item>
         <item name="android:fontFamily">@font/calculator</item>
         <item name="android:paddingVertical" tools:targetApi="o">@dimen/default_padding</item>
+        <item name="android:src">@drawable/clouds</item>
     </style>
-
 
     <style name="ViewTextStyle.Night">
         <item name="android:textColor">@color/my_gray</item>
+        <item name="android:src">@drawable/night_clouds</item>
     </style>
 
+    <style name="ImageView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:src">@drawable/clouds</item>
+    </style>
+
+    <style name="ImageView.Night">
+        <item name="android:src">@drawable/night_clouds</item>
+    </style>
 
     <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="windowActionBar">false</item>

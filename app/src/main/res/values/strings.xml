@@ -20,4 +20,6 @@
     <string name="key_erase">⌫</string>
     <string name="key_plusminus">±</string>
     <string name="g">haha</string>
+    <string name="precent">%</string>
+    <string name="background_image">background image</string>
 </resources>

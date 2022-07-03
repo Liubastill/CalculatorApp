@@ -17,6 +17,8 @@
 
         <item name="materialButtonStyle">@style/MyCalcButtonStyle.Night</item>
         <item name="calcOperatorsButton">@style/MyCalcButtonStyle.Operators.Nigth</item>
-        <item name="android:windowBackground">@drawable/clouds</item>
+        <item name="mytextViewStyle">@style/ViewTextStyle.Night</item>
+        <item name="myImageViewStyle">@style/ImageView.Night</item>
+
     </style>
 </resources>

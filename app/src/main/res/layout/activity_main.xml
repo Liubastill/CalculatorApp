@@ -8,145 +8,129 @@
     android:orientation="vertical"
     tools:context=".ui.MainActivity">
 
-    <ImageView
+    <ImageView style="?attr/myImageViewStyle"
+        android:contentDescription="@string/background_image" />
+
+
+    <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/clouds" />
+        android:columnCount="4"
+        android:useDefaultMargins="true">
+
+        <TextView
+            android:id="@+id/result"
+            style="?attr/mytextViewStyle"
+            android:layout_columnSpan="4"
+            tools:text="555" />
 
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/key_cancel"
+            style="?calcOperatorsButton"
+            android:text="@string/key_cancel"
+            android:textColor="@android:color/holo_red_dark"
+            app:rippleColor="@color/operator_green" />
 
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:columnCount="4"
-            android:useDefaultMargins="true"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/key_plusmin"
+            style="?calcOperatorsButton"
+            android:text="@string/key_plusminus"
+            app:rippleColor="@color/operator_green" />
 
-            >
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/key_percent"
+            style="?calcOperatorsButton"
+            android:text="@string/precent"
+            app:rippleColor="@color/operator_green" />
 
-            <TextView
-                android:id="@+id/result"
-                style="@style/ViewTextStyle.Night"
-                android:layout_columnSpan="4"
-                tools:text="555"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/key_div"
+            style="?calcOperatorsButton"
+            android:text="@string/key_devide"
+            app:rippleColor="@color/operator_green" />
 
-                />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/key_1"
+            android:text="@string/key_1"
+            app:rippleColor="@color/operator_green" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/key_2"
+            android:text="@string/key_2"
+            app:rippleColor="@color/operator_green" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/key_cancel"
-                style="?calcOperatorsButton"
-                android:text="@string/key_cancel"
-                android:textColor="@android:color/holo_red_dark"
-                app:rippleColor="@color/operator_green"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/key_3"
+            android:text="@string/key_3"
+            app:rippleColor="@color/operator_green" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/key_mult"
+            style="?calcOperatorsButton"
+            android:text="@string/key_multiple"
+            app:rippleColor="@color/operator_green" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/key_plusmin"
-                style="?calcOperatorsButton"
-                app:rippleColor="@color/operator_green"
-                android:text="@string/key_plusminus" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/key_4"
+            android:text="@string/key_4"
+            app:rippleColor="@color/operator_green" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/key_percent"
-                style="?calcOperatorsButton"
-                app:rippleColor="@color/operator_green"
-                android:text="%" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/key_5"
+            android:text="@string/key_5"
+            app:rippleColor="@color/operator_green" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/key_div"
-                style="?calcOperatorsButton"
-                app:rippleColor="@color/operator_green"
-                android:text="@string/key_devide" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/key_6"
+            android:text="@string/key_6"
+            app:rippleColor="@color/operator_green" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/key_1"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/key_minus"
+            style="?calcOperatorsButton"
+            android:text="@string/key_minus"
+            app:rippleColor="@color/operator_green" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/key_7"
+            android:text="@string/key_7"
+            app:rippleColor="@color/operator_green" />
 
-                android:text="@string/key_1"
-                app:rippleColor="@color/operator_green"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/key_8"
+            android:text="@string/key_8"
+            app:rippleColor="@color/operator_green" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/key_2"
-                app:rippleColor="@color/operator_green"
-                android:text="@string/key_2"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/key_9"
+            android:text="@string/key_9"
+            app:rippleColor="@color/operator_green" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/key_3"
-                app:rippleColor="@color/operator_green"
-                android:text="@string/key_3" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/key_plus"
+            style="?calcOperatorsButton"
+            android:text="@string/key_plus"
+            app:rippleColor="@color/operator_green" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/key_mult"
-                style="?calcOperatorsButton"
-                app:rippleColor="@color/operator_green"
-                android:text="@string/key_multiple"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/key_dot"
+            android:text="@string/key_dot"
+            app:rippleColor="@color/operator_green" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/key_4"
-                app:rippleColor="@color/operator_green"
-                android:text="@string/key_4" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/key_0"
+            android:text="@string/key_0"
+            app:rippleColor="@color/operator_green" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/key_equals"
+            style="?calcOperatorsButton"
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="2"
+            android:text="@string/key_equals"
+            app:rippleColor="@color/operator_green" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/key_5"
-                app:rippleColor="@color/operator_green"
-                android:text="@string/key_5" />
-
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/key_6"
-                app:rippleColor="@color/operator_green"
-                android:text="@string/key_6" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/key_minus"
-                style="?calcOperatorsButton"
-                app:rippleColor="@color/operator_green"
-                android:text="@string/key_minus" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/key_7"
-                app:rippleColor="@color/operator_green"
-                android:text="@string/key_7" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/key_8"
-                app:rippleColor="@color/operator_green"
-                android:text="@string/key_8" />
-
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/key_9"
-                app:rippleColor="@color/operator_green"
-                android:text="@string/key_9" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/key_plus"
-                style="?calcOperatorsButton"
-                app:rippleColor="@color/operator_green"
-                android:text="@string/key_plus" />
-
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/key_dot"
-                app:rippleColor="@color/operator_green"
-                android:text="@string/key_dot" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/key_0"
-                app:rippleColor="@color/operator_green"
-                android:text="@string/key_0" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/key_equals"
-                style="?calcOperatorsButton"
-                android:layout_columnSpan="2"
-                android:layout_columnWeight="2"
-                app:rippleColor="@color/operator_green"
-                android:text="@string/key_equals" />
-
-        </GridLayout>
-
+    </GridLayout>
 
 </FrameLayout>
