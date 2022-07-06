@@ -38,6 +38,10 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
             presenter.setArgTwo((Double)savedInstanceState.getSerializable("KEY_ARG2"));
             presenter.setSelectedOperator((Operator) savedInstanceState.getSerializable("KEY_OPER"));
             presenter.setLastRes((double)savedInstanceState.getSerializable("KEY_LASTRES"));
+            presenter.setDotPressed((Boolean) savedInstanceState.getSerializable("KEY_isDotPressed"));
+            presenter.setDotAlreadyPressed((Boolean) savedInstanceState.getSerializable("KEY_isDotAlreadyPressed"));
+            presenter.setEqualsPressed((Boolean) savedInstanceState.getSerializable("KEY_isEqualsPressed"));
+            presenter.setN((Integer) savedInstanceState.getSerializable("KEY_counterN"));
             presenter.showFormatted(presenter.getLastRes());
         } else{
             presenter = new CalculatorPresenter(this, new CalculatorImpl());
@@ -140,6 +144,15 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
         resultTxt.setText(result);
 
     }
+    @Override
+    public void showNotice(){
+        Toast.makeText(MainActivity.this,"на НОЛЬ делить нельзя",Toast.LENGTH_SHORT).show();
+
+    }
+
+
+
+
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
@@ -148,6 +161,10 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
         outState.putSerializable("KEY_ARG2", presenter.getArgTwo());
         outState.putSerializable("KEY_OPER", presenter.getSelectedOperator());
         outState.putSerializable("KEY_LASTRES", presenter.getLastRes());
+        outState.putSerializable("KEY_isDotPressed", presenter.isDotPressed());
+        outState.putSerializable("KEY_isDotAlreadyPressed", presenter.isDotAlreadyPressed());
+        outState.putSerializable("KEY_isEqualsPressed", presenter.isEqualsPressed());
+        outState.putSerializable("KEY_counterN", presenter.getN());
 
 
 
