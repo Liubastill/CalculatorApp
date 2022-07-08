@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="calcOperatorsButton"
+        format="reference"/>
+    <attr name="mytextViewStyle"
+        format="reference"/>
+    <attr name="myImageViewStyle"
+        format="reference"/>
+</resources>
