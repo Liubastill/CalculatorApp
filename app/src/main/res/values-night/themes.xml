@@ -12,5 +12,13 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+        <item name="windowNoTitle">true</item>
+
+        <item name="materialButtonStyle">@style/MyCalcButtonStyle.Night</item>
+        <item name="calcOperatorsButton">@style/MyCalcButtonStyle.Operators.Nigth</item>
+        <item name="mytextViewStyle">@style/ViewTextStyle.Night</item>
+        <item name="myImageViewStyle">@style/ImageView.Night</item>
+
     </style>
 </resources>
