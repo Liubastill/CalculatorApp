@@ -11,7 +11,7 @@ import java.text.DecimalFormat;
 
 public class CalculatorPresenter {
 
-    private DecimalFormat formater = new DecimalFormat("#.#######");
+    private final DecimalFormat FORMATER = new DecimalFormat("#.##########");
     private CalculatorView view;
     private Calculator calculator;
 
@@ -25,6 +25,17 @@ public class CalculatorPresenter {
     private boolean equalsPressed = false;
     private int n;
     private boolean dotAlreadyPressed = false;
+    private boolean plusminPressed = false;
+
+
+    public boolean isPlusminPressed() {
+        return plusminPressed;
+    }
+
+    public void setPlusminPressed(boolean plusminPressed) {
+        this.plusminPressed = plusminPressed;
+    }
+
 
     public boolean isDotPressed() {
         return dotPressed;
@@ -98,92 +109,149 @@ public class CalculatorPresenter {
 
 
     public void onDigitPressed(double digit) {
-        if (equalsPressed == false) {
+        if (!plusminPressed) {
+            if (!equalsPressed) {
+                if (!dotPressed) {
+                    if (selectedOperator == null) {
+                        if (argOne != null) {
 
-            if (dotPressed == false) {
+                            argOne = argOne * 10 + digit;
+                            showFormatted(argOne);
+                            lastRes = argOne;
+                        } else {
+                            argOne = digit;
+                            showFormatted(argOne);
+                            lastRes = argOne;
+                        }
 
-                if (selectedOperator == null) {
-                    if (argOne != null) {
-
-                        argOne = argOne * 10 + digit;
-                        showFormatted(argOne);
-                        lastRes = argOne;
                     } else {
-                        argOne = digit;
+                        if (argTwo != null) {
+
+                            argTwo = argTwo * 10 + digit;
+                            showFormatted(argTwo);
+                            lastRes = (double) argTwo;
+                        } else {
+                            argTwo = digit;
+                            showFormatted(argTwo);
+                            lastRes = argTwo;
+                        }
+                    }
+                } else if (dotPressed) {
+                    if (selectedOperator == null) {
+                        if (argOne != null) {
+                            argOne = argOne + digit * Math.pow(10, n);
+                        } else {
+                            argOne = digit * Math.pow(10, n);
+                        }
                         showFormatted(argOne);
                         lastRes = argOne;
-                    }
-
-                } else if (selectedOperator != null) {
-                    if (argTwo != null) {
-
-                        argTwo = argTwo * 10 + digit;
+                        n--;
+                    } else {
+                        if (argTwo != null) {
+                            argTwo = argTwo + digit * Math.pow(10, n);
+                        } else {
+                            argTwo = digit * Math.pow(10, n);
+                        }
                         showFormatted(argTwo);
                         lastRes = (double) argTwo;
-                    } else {
-                        argTwo = digit;
-                        showFormatted(argTwo);
-                        lastRes = argTwo;
+                        n--;
                     }
                 }
-            } else if (dotPressed == true) {
-                if (selectedOperator == null) {
-                    if (argOne != null) {
-                        argOne = argOne + digit * Math.pow(10, n);
-                    } else {
-                        argOne = digit * Math.pow(10, n);
-                    }
-                    showFormatted(argOne);
-                    lastRes = argOne;
-                    n--;
-                } else if (selectedOperator != null) {
-                    if (argTwo != null) {
-                        argTwo = argTwo + digit * Math.pow(10, n);
-                    } else {
-                        argTwo = digit * Math.pow(10, n);
-                    }
-                    showFormatted(argTwo);
-                    lastRes = (double) argTwo;
-                    n--;
-                }
+
+            } else {
+                argOne = digit;
+                showFormatted(argOne);
+                lastRes = argOne;
+                selectedOperator = null;
+                argTwo = null;
+
             }
+            equalsPressed = false;
+        } else if (plusminPressed) {
+            if (!equalsPressed) {
 
-        }else{
-            argOne = digit;
-            showFormatted(argOne);
-            lastRes = argOne;
-            selectedOperator = null;
-            argTwo = null;
+                if (!dotPressed) {
 
+                    if (selectedOperator == null) {
+                        if (argOne != null) {
+
+                            argOne = argOne * 10 + (digit * -1);
+                            showFormatted(argOne);
+                            lastRes = argOne;
+                        } else {
+                            argOne = digit * -1;
+                            showFormatted(argOne);
+                            lastRes = argOne;
+                        }
+
+                    } else {
+                        if (argTwo != null) {
+
+                            argTwo = argTwo * 10 + (digit * -1);
+                            showFormatted(argTwo);
+                            lastRes = (double) argTwo;
+                        } else {
+                            argTwo = digit * -1;
+                            showFormatted(argTwo);
+                            lastRes = argTwo;
+                        }
+                    }
+                } else if (dotPressed) {
+                    if (selectedOperator == null) {
+                        if (argOne != null) {
+                            argOne = argOne + digit * Math.pow(10, n) * -1;
+                        } else {
+                            argOne = digit * Math.pow(10, n) * -1;
+                        }
+                        showFormatted(argOne);
+                        lastRes = argOne;
+                        n--;
+                    } else {
+                        if (argTwo != null) {
+                            argTwo = argTwo + digit * Math.pow(10, n) * -1;
+                        } else {
+                            argTwo = digit * Math.pow(10, n) * -1;
+                        }
+                        showFormatted(argTwo);
+                        lastRes = (double) argTwo;
+                        n--;
+                    }
+                }
+            } else {
+                argOne = digit;
+                showFormatted(argOne);
+                lastRes = argOne;
+                selectedOperator = null;
+                argTwo = null;
+            }
+            equalsPressed = false;
         }
-        equalsPressed = false;
-
     }
 
 
     public void onOperatorPressed(Operator operator) {
-
-
-        if (equalsPressed == true) {
+        plusminPressed = false;
+        if (equalsPressed) {
 
             if (argOne != null & selectedOperator != null & argTwo != null) {
 
                 argTwo = null;
                 selectedOperator = operator;
 
-        } else if (argOne != null & selectedOperator != null & argTwo == null) {
-            selectedOperator = operator;
-        } else if (argOne != null & selectedOperator == null & argTwo == null) {
-            selectedOperator = operator;
-        } else if (argOne == null & selectedOperator == null & argTwo == null) {
-            selectedOperator = null;
-        }
+            } else if (argOne != null & selectedOperator != null & argTwo == null) {
+                selectedOperator = operator;
+            } else if (argOne != null & selectedOperator == null & argTwo == null) {
+                selectedOperator = operator;
+            } else if (argOne == null & selectedOperator == null & argTwo == null) {
+                selectedOperator = null;
+            }
             equalsPressed = false;
-    }
+        }
         if (argOne != null & selectedOperator != null & argTwo != null) {
-            if (argOne != null & selectedOperator == Operator.DIV & argTwo == 0) {
+            if (selectedOperator == Operator.DIV & argTwo == 0) {
                 view.showNotice();
                 argTwo = null;
+                lastRes = 0;
 
             } else {
                 argOne = calculator.execute(argOne, argTwo, selectedOperator);
@@ -202,46 +270,19 @@ public class CalculatorPresenter {
         }
         dotAlreadyPressed = false;
         dotPressed = false;
-        //equalsPressed = false;
-        }
+    }
 
 
-
-/*
     public void onEqualsPressed() {
 
-        if(argOne != null & selectedOperator == Operator.DIV & argTwo == 0){
-            view.showNotice();
-            argTwo = null;
-        }
-        if (argOne == null & selectedOperator == null & argTwo == null) {
-            equalsPressed = false;
-        }
         if (argOne != null & selectedOperator != null & argTwo != null) {
-
-            argOne = calculator.execute(argOne, argTwo, selectedOperator);
-            showFormatted(argOne);
-            lastRes = argOne;
-        }
-        dotPressed = false;
-        dotAlreadyPressed = false;
-        argTwo = null;
-        selectedOperator = null;
-        equalsPressed = true;
-
-
-
-    }*/
-
-    public void onEqualsPressed() {
-
-     if (argOne != null & selectedOperator != null & argTwo != null) {
 
             if (argOne != null & selectedOperator == Operator.DIV & argTwo == 0) {
                 view.showNotice();
                 argTwo = null;
                 dotPressed = false;
                 dotAlreadyPressed = false;
+                lastRes = 0;
             } else {
 
                 argOne = calculator.execute(argOne, argTwo, selectedOperator);
@@ -252,13 +293,13 @@ public class CalculatorPresenter {
                 equalsPressed = true;
             }
         }
-
     }
 
     public void onDotPressed() {
-        if(dotAlreadyPressed == false) {
-            n = -1;
-            if (dotPressed == false) {
+        n = -1;
+        if (!dotAlreadyPressed) {
+
+            if (!dotPressed) {
                 dotPressed = true;
             } else {
                 dotPressed = false;
@@ -269,14 +310,57 @@ public class CalculatorPresenter {
 
     public void onPlusMinusPressed() {
 
+        if (!equalsPressed) {
+            if (!plusminPressed) {
+                if (argOne != null & selectedOperator != null & argTwo != null) {
+                    argTwo = argTwo * (-1);
+                    plusminPressed = true;
+                    showFormatted(argTwo);
+                    lastRes = argTwo;
+                } else if (argOne != null & selectedOperator == null & argTwo == null) {
+                    argOne = argOne * (-1);
+                    showFormatted(argOne);
+                    plusminPressed = true;
+                    lastRes = argOne;
+                } else {
+                    plusminPressed = true;
+                }
+            } else {
+                if (argOne != null & selectedOperator != null & argTwo != null) {
+                    argTwo = argTwo * (-1);
+                    plusminPressed = false;
+                    showFormatted(argTwo);
+                    lastRes = argTwo;
 
+                } else if (argOne != null & selectedOperator == null & argTwo == null) {
+                    argOne = argOne * (-1);
+                    showFormatted(argOne);
+                    plusminPressed = false;
+                    lastRes = argOne;
+                } else {
+                    plusminPressed = false;
+                }
+            }
+        } else {
         }
+    }
 
-    public void showFormatted(double val) {
-
-        view.showResult((formater.format(val)));
-
+    public void onCencelPressed() {
+        argTwo = null;
+        argOne = null;
+        selectedOperator = null;
+        lastRes = 0;
+        dotPressed = false;
+        equalsPressed = false;
+        n = -1;
+        dotAlreadyPressed = false;
+        plusminPressed = false;
     }
 
 
+    public void showFormatted(double val) {
+
+        view.showResult((FORMATER.format(val)));
+
+    }
 }

@@ -30,25 +30,24 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
         resultTxt = findViewById(R.id.result);
 
 
-
-
         if (savedInstanceState != null) {
             presenter = new CalculatorPresenter(this, new CalculatorImpl());
-            presenter.setArgOne((double)savedInstanceState.getSerializable("KEY_ARG1"));
-            presenter.setArgTwo((Double)savedInstanceState.getSerializable("KEY_ARG2"));
+            presenter.setArgOne((double) savedInstanceState.getSerializable("KEY_ARG1"));
+            presenter.setArgTwo((Double) savedInstanceState.getSerializable("KEY_ARG2"));
             presenter.setSelectedOperator((Operator) savedInstanceState.getSerializable("KEY_OPER"));
-            presenter.setLastRes((double)savedInstanceState.getSerializable("KEY_LASTRES"));
+            presenter.setLastRes((double) savedInstanceState.getSerializable("KEY_LASTRES"));
             presenter.setDotPressed((Boolean) savedInstanceState.getSerializable("KEY_isDotPressed"));
             presenter.setDotAlreadyPressed((Boolean) savedInstanceState.getSerializable("KEY_isDotAlreadyPressed"));
             presenter.setEqualsPressed((Boolean) savedInstanceState.getSerializable("KEY_isEqualsPressed"));
             presenter.setN((Integer) savedInstanceState.getSerializable("KEY_counterN"));
+            presenter.setPlusminPressed((Boolean) savedInstanceState.getSerializable("KEY_plusMin"));
             presenter.showFormatted(presenter.getLastRes());
-        } else{
+        } else {
             presenter = new CalculatorPresenter(this, new CalculatorImpl());
         }
 
 
-        Map<Integer,Integer> digits = new HashMap<>();
+        Map<Integer, Integer> digits = new HashMap<>();
         digits.put(R.id.key_1, 1);
         digits.put(R.id.key_2, 2);
         digits.put(R.id.key_3, 3);
@@ -101,11 +100,9 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
             findViewById(R.id.key_div).setOnClickListener(operatorsClickListener);
             findViewById(R.id.key_mult).setOnClickListener(operatorsClickListener);
             findViewById(R.id.key_percent).setOnClickListener(operatorsClickListener);
-        }catch(ArrayIndexOutOfBoundsException e){
+        } catch (ArrayIndexOutOfBoundsException e) {
 
         }
-
-
 
 
         findViewById(R.id.key_dot).setOnClickListener(new View.OnClickListener() {
@@ -115,10 +112,18 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
             }
         });
 
-        findViewById(R.id.key_cancel).setOnClickListener(new View.OnClickListener() {
+       /* findViewById(R.id.key_cancel).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, MainActivity.class));
+            }
+        });*/
+
+        findViewById(R.id.key_cancel).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                presenter.onCencelPressed();
+                showResult("");
             }
         });
 
@@ -129,14 +134,12 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
             }
         });
 
-        /*findViewById(R.id.key_plusmin).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.key_plusmin).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 presenter.onPlusMinusPressed();
             }
-        });*/
-
-
+        });
     }
 
     @Override
@@ -144,20 +147,18 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
         resultTxt.setText(result);
 
     }
+
     @Override
-    public void showNotice(){
-        Toast.makeText(MainActivity.this,"на НОЛЬ делить нельзя",Toast.LENGTH_SHORT).show();
+    public void showNotice() {
+        Toast.makeText(MainActivity.this, "на НОЛЬ делить нельзя", Toast.LENGTH_SHORT).show();
 
     }
-
-
-
 
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putSerializable("KEY_ARG1", presenter.getArgOne() );
+        outState.putSerializable("KEY_ARG1", presenter.getArgOne());
         outState.putSerializable("KEY_ARG2", presenter.getArgTwo());
         outState.putSerializable("KEY_OPER", presenter.getSelectedOperator());
         outState.putSerializable("KEY_LASTRES", presenter.getLastRes());
@@ -165,9 +166,7 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
         outState.putSerializable("KEY_isDotAlreadyPressed", presenter.isDotAlreadyPressed());
         outState.putSerializable("KEY_isEqualsPressed", presenter.isEqualsPressed());
         outState.putSerializable("KEY_counterN", presenter.getN());
-
-
-
+        outState.putSerializable("KEY_plusMin", presenter.isPlusminPressed());
 
     }
 }
