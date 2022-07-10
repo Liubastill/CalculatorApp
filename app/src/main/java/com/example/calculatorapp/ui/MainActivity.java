@@ -26,6 +26,9 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //setTheme(R.style.Theme_CalculatorApp_Purple);
+
         setContentView(R.layout.activity_main);
         resultTxt = findViewById(R.id.result);
 

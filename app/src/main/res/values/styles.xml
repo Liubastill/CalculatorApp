@@ -15,11 +15,21 @@
     <style name="MyCalcButtonStyle.Night">
         <item name="android:backgroundTint">@color/my_button_night_color</item>
         <item name="android:textColor">@color/my_gray</item>
+
     </style>
 
+    <style name="MyCalcButtonStyle.Purple">
+        <item name="android:backgroundTint">@color/purple_200</item>
+        <item name="android:textColor">@color/my_purple</item>
+    </style>
 
     <style name="MyCalcButtonStyle.Operators">
         <item name="android:textColor">@color/operator_green</item>
+    </style>
+
+    <style name="MyCalcButtonStyle.Operators.Purple">
+        <item name="android:backgroundTint">@color/purple_200</item>
+        <item name="android:textColor">@color/my_green</item>
     </style>
 
 
@@ -36,12 +46,17 @@
         <item name="android:gravity">end|bottom</item>
         <item name="android:fontFamily">@font/calculator</item>
         <item name="android:paddingVertical" tools:targetApi="o">@dimen/default_padding</item>
-        <item name="android:src">@drawable/clouds</item>
+
     </style>
 
     <style name="ViewTextStyle.Night">
         <item name="android:textColor">@color/my_gray</item>
-        <item name="android:src">@drawable/night_clouds</item>
+
+    </style>
+
+    <style name="ViewTextStyle.Purple">
+        <item name="android:textColor">@color/my_purple</item>
+
     </style>
 
     <style name="ImageView">
@@ -53,6 +68,10 @@
 
     <style name="ImageView.Night">
         <item name="android:src">@drawable/night_clouds</item>
+    </style>
+
+    <style name="ImageView.Purple">
+        <item name="android:src">@drawable/purple_clouds</item>
     </style>
 
     <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.DarkActionBar">

@@ -19,7 +19,22 @@
         <item name="calcOperatorsButton">@style/MyCalcButtonStyle.Operators</item>
         <item name="mytextViewStyle">@style/ViewTextStyle</item>
         <item name="myImageViewStyle">@style/ImageView</item>
-
-
     </style>
+
+     <style name="Theme.CalculatorApp.Night" >
+         <item name="windowNoTitle">true</item>
+         <item name="materialButtonStyle">@style/MyCalcButtonStyle.Night</item>
+         <item name="calcOperatorsButton">@style/MyCalcButtonStyle.Operators.Nigth</item>
+         <item name="mytextViewStyle">@style/ViewTextStyle.Night</item>
+         <item name="myImageViewStyle">@style/ImageView.Night</item>
+     </style>
+
+     <style name="Theme.CalculatorApp.Purple" >
+         <item name="windowNoTitle">true</item>
+         <item name="materialButtonStyle">@style/MyCalcButtonStyle.Purple</item>
+         <item name="calcOperatorsButton">@style/MyCalcButtonStyle.Operators.Purple</item>
+         <item name="mytextViewStyle">@style/ViewTextStyle.Purple</item>
+         <item name="myImageViewStyle">@style/ImageView.Purple</item>
+     </style>
+
 </resources>
