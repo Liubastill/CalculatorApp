@@ -1,8 +1,11 @@
 package com.example.calculatorapp.ui;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,28 +15,38 @@ import android.widget.Toast;
 import com.example.calculatorapp.R;
 import com.example.calculatorapp.model.CalculatorImpl;
 import com.example.calculatorapp.model.Operator;
+import com.example.calculatorapp.model.Theme;
+import com.example.calculatorapp.model.ThemeRepository;
+import com.example.calculatorapp.model.ThemeRepositoryImpl;
 
-import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-
 
 public class MainActivity extends AppCompatActivity implements CalculatorView {
 
     private TextView resultTxt;
+
     private CalculatorPresenter presenter;
+
+    private ThemeRepository themeRepository;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //setTheme(R.style.Theme_CalculatorApp_Purple);
+        themeRepository = ThemeRepositoryImpl.getInstance(this);
+
+        setTheme(themeRepository.getSavedTheme().getThemeRes());
 
         setContentView(R.layout.activity_main);
+
         resultTxt = findViewById(R.id.result);
 
 
-        if (savedInstanceState != null) {
+
+        if (savedInstanceState != null ) {
             presenter = new CalculatorPresenter(this, new CalculatorImpl());
             presenter.setArgOne((double) savedInstanceState.getSerializable("KEY_ARG1"));
             presenter.setArgTwo((Double) savedInstanceState.getSerializable("KEY_ARG2"));
@@ -115,12 +128,6 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
             }
         });
 
-       /* findViewById(R.id.key_cancel).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, MainActivity.class));
-            }
-        });*/
 
         findViewById(R.id.key_cancel).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,7 +150,34 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
                 presenter.onPlusMinusPressed();
             }
         });
+
+
+        ActivityResultLauncher<Intent> themeLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            if (result.getResultCode() == Activity.RESULT_OK){
+                Intent intent = result.getData();
+
+                Theme selectedTheme = (Theme) intent.getSerializableExtra(SelectThemeActivity.EXTRA_THEME);
+
+                themeRepository.saveTheme(selectedTheme);
+
+                recreate();
+            }
+
+        });
+
+        findViewById(R.id.theme).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this, SelectThemeActivity.class);
+                intent.putExtra(SelectThemeActivity.EXTRA_THEME, themeRepository.getSavedTheme());
+
+                themeLauncher.launch(intent);
+            }
+        });
     }
+
+
 
     @Override
     public void showResult(String result) {
@@ -172,4 +206,6 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
         outState.putSerializable("KEY_plusMin", presenter.isPlusminPressed());
 
     }
+
+
 }
