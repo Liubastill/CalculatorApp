@@ -12,31 +12,9 @@
     </style>
 
 
-    <style name="MyCalcButtonStyle.Night">
-        <item name="android:backgroundTint">@color/my_button_night_color</item>
-        <item name="android:textColor">@color/my_gray</item>
-
-    </style>
-
-    <style name="MyCalcButtonStyle.Purple">
-        <item name="android:backgroundTint">@color/purple_200</item>
-        <item name="android:textColor">@color/my_purple</item>
-    </style>
-
     <style name="MyCalcButtonStyle.Operators">
         <item name="android:textColor">@color/operator_green</item>
     </style>
-
-    <style name="MyCalcButtonStyle.Operators.Purple">
-        <item name="android:backgroundTint">@color/purple_200</item>
-        <item name="android:textColor">@color/my_green</item>
-    </style>
-
-
-    <style name="MyCalcButtonStyle.Operators.Nigth">
-        <item name="android:backgroundTint">@color/my_button_night_color</item>
-    </style>
-
 
     <style name="ViewTextStyle">
         <item name="android:layout_width">wrap_content</item>
@@ -46,17 +24,6 @@
         <item name="android:gravity">end|bottom</item>
         <item name="android:fontFamily">@font/calculator</item>
         <item name="android:paddingVertical" tools:targetApi="o">@dimen/default_padding</item>
-
-    </style>
-
-    <style name="ViewTextStyle.Night">
-        <item name="android:textColor">@color/my_gray</item>
-
-    </style>
-
-    <style name="ViewTextStyle.Purple">
-        <item name="android:textColor">@color/my_purple</item>
-
     </style>
 
     <style name="ImageView">
@@ -66,13 +33,84 @@
         <item name="android:src">@drawable/clouds</item>
     </style>
 
+    <style name="MyCalcButtonStyle.Night">
+        <item name="android:backgroundTint">@color/my_button_night_color</item>
+        <item name="android:textColor">@color/my_gray</item>
+    </style>
+
+    <style name="MyCalcButtonStyle.Operators.Nigth">
+        <item name="android:backgroundTint">@color/my_button_night_color</item>
+    </style>
+
+    <style name="ViewTextStyle.Night">
+    <item name="android:textColor">@color/my_gray</item>
+    </style>
+
     <style name="ImageView.Night">
         <item name="android:src">@drawable/night_clouds</item>
+    </style>
+
+    <style name="MyCalcButtonStyle.Purple">
+        <item name="android:backgroundTint">@color/purple_200</item>
+        <item name="android:textColor">@color/my_purple</item>
+    </style>
+
+
+    <style name="MyCalcButtonStyle.Operators.Purple">
+        <item name="android:backgroundTint">@color/purple_200</item>
+        <item name="android:textColor">@color/my_green</item>
+    </style>
+
+
+    <style name="ViewTextStyle.Purple">
+        <item name="android:textColor">@color/my_purple</item>
     </style>
 
     <style name="ImageView.Purple">
         <item name="android:src">@drawable/purple_clouds</item>
     </style>
+
+
+ <style name="MyCalcButtonStyle.Blue">
+        <item name="android:backgroundTint">@color/my_blue1</item>
+        <item name="android:textColor">@color/my_gray</item>
+    </style>
+
+
+    <style name="MyCalcButtonStyle.Operators.Blue">
+        <item name="android:backgroundTint">@color/my_blue1</item>
+        <item name="android:textColor">@color/my_green</item>
+    </style>
+
+
+    <style name="ViewTextStyle.Blue">
+        <item name="android:textColor">@color/my_blue</item>
+    </style>
+
+    <style name="ImageView.Blue">
+        <item name="android:src">@drawable/blue_clouds</item>
+    </style>
+
+<style name="MyCalcButtonStyle.Orange">
+        <item name="android:backgroundTint">@color/my_orange</item>
+        <item name="android:textColor">@color/my_deep_blue</item>
+    </style>
+
+
+    <style name="MyCalcButtonStyle.Operators.Orange">
+        <item name="android:backgroundTint">@color/my_orange</item>
+        <item name="android:textColor">@color/my_green</item>
+    </style>
+
+
+    <style name="ViewTextStyle.Orange">
+        <item name="android:textColor">@color/my_deep_blue</item>
+    </style>
+
+    <style name="ImageView.Orange">
+        <item name="android:src">@drawable/orange_clouds</item>
+    </style>
+
 
     <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="windowActionBar">false</item>
