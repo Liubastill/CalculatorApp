@@ -44,22 +44,22 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
 
         resultTxt = findViewById(R.id.result);
 
-
+        presenter = new CalculatorPresenter(this, new CalculatorImpl());
 
         if (savedInstanceState != null ) {
-            presenter = new CalculatorPresenter(this, new CalculatorImpl());
-            presenter.setArgOne((double) savedInstanceState.getSerializable("KEY_ARG1"));
+
+            presenter.setArgOne((Double) savedInstanceState.getSerializable("KEY_ARG1"));
             presenter.setArgTwo((Double) savedInstanceState.getSerializable("KEY_ARG2"));
             presenter.setSelectedOperator((Operator) savedInstanceState.getSerializable("KEY_OPER"));
-            presenter.setLastRes((double) savedInstanceState.getSerializable("KEY_LASTRES"));
+            presenter.setLastRes((Double) savedInstanceState.getSerializable("KEY_LASTRES"));
             presenter.setDotPressed((Boolean) savedInstanceState.getSerializable("KEY_isDotPressed"));
             presenter.setDotAlreadyPressed((Boolean) savedInstanceState.getSerializable("KEY_isDotAlreadyPressed"));
             presenter.setEqualsPressed((Boolean) savedInstanceState.getSerializable("KEY_isEqualsPressed"));
             presenter.setN((Integer) savedInstanceState.getSerializable("KEY_counterN"));
             presenter.setPlusminPressed((Boolean) savedInstanceState.getSerializable("KEY_plusMin"));
             presenter.showFormatted(presenter.getLastRes());
-        } else {
-            presenter = new CalculatorPresenter(this, new CalculatorImpl());
+        }else{
+
         }
 
 
@@ -178,7 +178,6 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
     }
 
 
-
     @Override
     public void showResult(String result) {
         resultTxt.setText(result);
@@ -206,6 +205,4 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
         outState.putSerializable("KEY_plusMin", presenter.isPlusminPressed());
 
     }
-
-
 }

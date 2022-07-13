@@ -5,6 +5,7 @@ import androidx.cardview.widget.CardView;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -46,6 +47,7 @@ public class SelectThemeActivity extends AppCompatActivity {
             title.setText(theme.getTitle());
 
             CardView cardView = itemView.findViewById(R.id.theme_card);
+
 
             cardView.setOnClickListener(new View.OnClickListener() {
 
