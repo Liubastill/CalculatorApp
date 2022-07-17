@@ -137,6 +137,16 @@
             android:text="@string/key_equals"
             app:rippleColor="@color/operator_green" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/theme"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="bottom"
+            android:textSize="@dimen/choose_button_text"
+            android:layout_columnSpan="7"
+            android:layout_columnWeight="7"
+            android:text="@string/theme"
+            app:rippleColor="@color/operator_green" />
+
     </GridLayout>
 
 </FrameLayout>

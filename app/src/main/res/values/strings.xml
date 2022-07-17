@@ -22,4 +22,11 @@
     <string name="g">haha</string>
     <string name="precent">%</string>
     <string name="background_image">background image</string>
+    <string name="main_theme">MAIN THEME</string>
+    <string name="night_theme">NIGHT THEME</string>
+    <string name="purple_theme">PURPLE THEME</string>
+    <string name="blue_theme">BLUE THEME</string>
+    <string name="orange_theme">ORANGE THEME</string>
+    <string name="theme">choose your theme</string>
+    <string name="how_to">HOW TO</string>
 </resources>

@@ -1,8 +1,11 @@
 package com.example.calculatorapp.ui;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,38 +15,51 @@ import android.widget.Toast;
 import com.example.calculatorapp.R;
 import com.example.calculatorapp.model.CalculatorImpl;
 import com.example.calculatorapp.model.Operator;
+import com.example.calculatorapp.model.Theme;
+import com.example.calculatorapp.model.ThemeRepository;
+import com.example.calculatorapp.model.ThemeRepositoryImpl;
 
-import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-
 
 public class MainActivity extends AppCompatActivity implements CalculatorView {
 
     private TextView resultTxt;
+
     private CalculatorPresenter presenter;
+
+    private ThemeRepository themeRepository;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        themeRepository = ThemeRepositoryImpl.getInstance(this);
+
+        setTheme(themeRepository.getSavedTheme().getThemeRes());
+
         setContentView(R.layout.activity_main);
+
         resultTxt = findViewById(R.id.result);
 
+        presenter = new CalculatorPresenter(this, new CalculatorImpl());
 
-        if (savedInstanceState != null) {
-            presenter = new CalculatorPresenter(this, new CalculatorImpl());
-            presenter.setArgOne((double) savedInstanceState.getSerializable("KEY_ARG1"));
+        if (savedInstanceState != null ) {
+
+            presenter.setArgOne((Double) savedInstanceState.getSerializable("KEY_ARG1"));
             presenter.setArgTwo((Double) savedInstanceState.getSerializable("KEY_ARG2"));
             presenter.setSelectedOperator((Operator) savedInstanceState.getSerializable("KEY_OPER"));
-            presenter.setLastRes((double) savedInstanceState.getSerializable("KEY_LASTRES"));
+            presenter.setLastRes((Double) savedInstanceState.getSerializable("KEY_LASTRES"));
             presenter.setDotPressed((Boolean) savedInstanceState.getSerializable("KEY_isDotPressed"));
             presenter.setDotAlreadyPressed((Boolean) savedInstanceState.getSerializable("KEY_isDotAlreadyPressed"));
             presenter.setEqualsPressed((Boolean) savedInstanceState.getSerializable("KEY_isEqualsPressed"));
             presenter.setN((Integer) savedInstanceState.getSerializable("KEY_counterN"));
             presenter.setPlusminPressed((Boolean) savedInstanceState.getSerializable("KEY_plusMin"));
             presenter.showFormatted(presenter.getLastRes());
-        } else {
-            presenter = new CalculatorPresenter(this, new CalculatorImpl());
+        }else{
+
         }
 
 
@@ -112,12 +128,6 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
             }
         });
 
-       /* findViewById(R.id.key_cancel).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, MainActivity.class));
-            }
-        });*/
 
         findViewById(R.id.key_cancel).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,7 +150,33 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
                 presenter.onPlusMinusPressed();
             }
         });
+
+
+        ActivityResultLauncher<Intent> themeLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            if (result.getResultCode() == Activity.RESULT_OK){
+                Intent intent = result.getData();
+
+                Theme selectedTheme = (Theme) intent.getSerializableExtra(SelectThemeActivity.EXTRA_THEME);
+
+                themeRepository.saveTheme(selectedTheme);
+
+                recreate();
+            }
+
+        });
+
+        findViewById(R.id.theme).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this, SelectThemeActivity.class);
+                intent.putExtra(SelectThemeActivity.EXTRA_THEME, themeRepository.getSavedTheme());
+
+                themeLauncher.launch(intent);
+            }
+        });
     }
+
 
     @Override
     public void showResult(String result) {

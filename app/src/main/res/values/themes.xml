@@ -19,7 +19,38 @@
         <item name="calcOperatorsButton">@style/MyCalcButtonStyle.Operators</item>
         <item name="mytextViewStyle">@style/ViewTextStyle</item>
         <item name="myImageViewStyle">@style/ImageView</item>
-
-
     </style>
+
+     <style name="Theme.CalculatorApp.Night" >
+         <item name="windowNoTitle">true</item>
+         <item name="materialButtonStyle">@style/MyCalcButtonStyle.Night</item>
+         <item name="calcOperatorsButton">@style/MyCalcButtonStyle.Operators.Nigth</item>
+         <item name="mytextViewStyle">@style/ViewTextStyle.Night</item>
+         <item name="myImageViewStyle">@style/ImageView.Night</item>
+     </style>
+
+     <style name="Theme.CalculatorApp.Purple" >
+         <item name="windowNoTitle">true</item>
+         <item name="materialButtonStyle">@style/MyCalcButtonStyle.Purple</item>
+         <item name="calcOperatorsButton">@style/MyCalcButtonStyle.Operators.Purple</item>
+         <item name="mytextViewStyle">@style/ViewTextStyle.Purple</item>
+         <item name="myImageViewStyle">@style/ImageView.Purple</item>
+     </style>
+
+     <style name="Theme.CalculatorApp.Blue" >
+         <item name="windowNoTitle">true</item>
+         <item name="materialButtonStyle">@style/MyCalcButtonStyle.Blue</item>
+         <item name="calcOperatorsButton">@style/MyCalcButtonStyle.Operators.Blue</item>
+         <item name="mytextViewStyle">@style/ViewTextStyle.Blue</item>
+         <item name="myImageViewStyle">@style/ImageView.Blue</item>
+     </style>
+
+    <style name="Theme.CalculatorApp.Orange" >
+         <item name="windowNoTitle">true</item>
+         <item name="materialButtonStyle">@style/MyCalcButtonStyle.Orange</item>
+         <item name="calcOperatorsButton">@style/MyCalcButtonStyle.Operators.Orange</item>
+         <item name="mytextViewStyle">@style/ViewTextStyle.Orange</item>
+         <item name="myImageViewStyle">@style/ImageView.Orange</item>
+     </style>
+
 </resources>
